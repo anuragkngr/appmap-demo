@@ -1,0 +1,11 @@
+# 'name' should generally be the same as the code repo name.
+name: employee-service
+language: java
+appmap_dir: tmp/appmap
+#packages:
+#  - path: /src
+#    exclude: /test
+#  - path: /src
+#    methods:
+#      - class: Logger
+#        name: log

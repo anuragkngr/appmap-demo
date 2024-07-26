@@ -1,0 +1,80 @@
+{
+  "events": [
+    {
+      "event": "call",
+      "http_server_request": {
+        "headers": {
+          "Accept": "application/json",
+          "Content-Length": "241",
+          "Content-Type": "application/json;charset=UTF-8"
+        },
+        "normalized_path_info": "/api/employee",
+        "path_info": "/api/employee",
+        "protocol": "HTTP/1.1",
+        "request_method": "POST"
+      },
+      "id": 1,
+      "thread_id": 1
+    },
+    {
+      "elapsed": 0.01918167,
+      "event": "return",
+      "http_server_response": {
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "status": 201
+      },
+      "id": 2,
+      "parent_id": 1,
+      "thread_id": 1
+    }
+  ],
+  "version": "1.2",
+  "metadata": {
+    "name": "Employee controller impl test save",
+    "app": "employee-service",
+    "language": {
+      "name": "java",
+      "version": "19.0.2+7-44",
+      "engine": "Java HotSpot(TM) 64-Bit Server VM"
+    },
+    "client": {
+      "name": "appmap-java",
+      "url": "https://github.com/appland/appmap-java"
+    },
+    "recorder": {
+      "name": "junit",
+      "type": "tests"
+    },
+    "recording": {
+      "defined_class": "com.javatechie.controller.impl.EmployeeControllerImplTest",
+      "method_id": "testSave"
+    },
+    "git": {
+      "repository": "https://github.com/Java-Techie-jt/appmap-demo.git",
+      "branch": "main",
+      "commit": "b961dd71c1477f851fa4a14f7b304122ed166ca8"
+    },
+    "source_location": "com/javatechie/controller/impl/EmployeeControllerImplTest.java:49",
+    "frameworks": [
+      {
+        "name": "JUnit",
+        "version": "5"
+      }
+    ],
+    "test_status": "succeeded"
+  },
+  "classMap": [
+    {
+      "type": "http",
+      "name": "HTTP server requests",
+      "children": [
+        {
+          "type": "route",
+          "name": "POST /api/employee"
+        }
+      ]
+    }
+  ]
+}

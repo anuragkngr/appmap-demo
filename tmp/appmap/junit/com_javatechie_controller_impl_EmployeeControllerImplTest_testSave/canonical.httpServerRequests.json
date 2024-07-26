@@ -1,0 +1,7 @@
+[
+  {
+    "route": "POST /api/employee",
+    "parameters": "()",
+    "status": 201
+  }
+]

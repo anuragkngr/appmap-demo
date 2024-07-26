@@ -46,13 +46,13 @@ class EmployeeControllerImplTest {
     @Test
     void testSave() throws Exception {
         // Setup
-        when(mockEmployeeMapper.asEntity(any(EmployeeDTO.class))).thenReturn(new Employee(0, "name", "dept", 0.0));
-        when(mockEmployeeService.save(any(Employee.class))).thenReturn(new Employee(0, "name", "dept", 0.0));
-        when(mockEmployeeMapper.asDTO(any(Employee.class))).thenReturn(new EmployeeDTO(0, "name", "dept", 0.0));
+        when(mockEmployeeMapper.asEntity(any(EmployeeDTO.class))).thenReturn(new Employee(0,"userName","designation","firstName", "lastLame", "fullName", "employeeCode", "region", 0.0, "email", "department", 0.0));
+        when(mockEmployeeService.save(any(Employee.class))).thenReturn(new Employee(0,"userName","designation","firstName", "lastLame", "fullName", "employeeCode", "region", 0.0, "email", "department", 0.0));
+        when(mockEmployeeMapper.asDTO(any(Employee.class))).thenReturn(new EmployeeDTO(0,"userName","designation","firstName", "lastLame", "fullName", "employeeCode", "region", 0.0, "email", "department", 0.0));
 
         // Run the test
         final MockHttpServletResponse response = mockMvc.perform(post("/api/employee")
-                        .content(new ObjectMapper().writeValueAsString(new EmployeeDTO(0, "name", "dept", 0.0))).contentType(MediaType.APPLICATION_JSON)
+                        .content(new ObjectMapper().writeValueAsString(new EmployeeDTO(0,"userName","designation","firstName", "lastLame", "fullName", "employeeCode", "region", 0.0, "email", "department", 0.0))).contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))
                 .andReturn().getResponse();
 
@@ -64,10 +64,10 @@ class EmployeeControllerImplTest {
     void testFindById() throws Exception {
         // Setup
         // Configure EmployeeService.findById(...).
-        final Optional<Employee> employee = Optional.of(new Employee(0, "name", "dept", 0.0));
+        final Optional<Employee> employee = Optional.of(new Employee(0,"userName","designation","firstName", "lastLame", "fullName", "employeeCode", "region", 0.0, "email", "department", 0.0));
         when(mockEmployeeService.findById(0)).thenReturn(employee);
 
-        when(mockEmployeeMapper.asDTO(any(Employee.class))).thenReturn(new EmployeeDTO(0, "name", "dept", 0.0));
+        when(mockEmployeeMapper.asDTO(any(Employee.class))).thenReturn(new EmployeeDTO(0,"userName","designation","firstName", "lastLame", "fullName", "employeeCode", "region", 0.0, "email", "department", 0.0));
 
         // Run the test
         final MockHttpServletResponse response = mockMvc.perform(get("/api/employee/{id}", 0)
@@ -82,7 +82,7 @@ class EmployeeControllerImplTest {
     void testFindById_EmployeeServiceReturnsAbsent() throws Exception {
         // Setup
         when(mockEmployeeService.findById(0)).thenReturn(Optional.empty());
-        when(mockEmployeeMapper.asDTO(any(Employee.class))).thenReturn(new EmployeeDTO(0, "name", "dept", 0.0));
+        when(mockEmployeeMapper.asDTO(any(Employee.class))).thenReturn(new EmployeeDTO(0,"userName","designation","firstName", "lastLame", "fullName", "employeeCode", "region", 0.0, "email", "department", 0.0));
 
         // Run the test
         final MockHttpServletResponse response = mockMvc.perform(get("/api/employee/{id}", 0)
@@ -110,12 +110,12 @@ class EmployeeControllerImplTest {
     void testList() throws Exception {
         // Setup
         // Configure EmployeeService.findAll(...).
-        final List<Employee> employees = Arrays.asList(new Employee(0, "name", "dept", 0.0));
+        final List<Employee> employees = Arrays.asList(new Employee(0,"userName","designation","firstName", "lastLame", "fullName", "employeeCode", "region", 0.0, "email", "department", 0.0));
         when(mockEmployeeService.findAll()).thenReturn(employees);
 
         // Configure EmployeeMapper.asDTOList(...).
-        final List<EmployeeDTO> employeeDTOS = Arrays.asList(new EmployeeDTO(0, "name", "dept", 0.0));
-        when(mockEmployeeMapper.asDTOList(Arrays.asList(new Employee(0, "name", "dept", 0.0))))
+        final List<EmployeeDTO> employeeDTOS = Arrays.asList(new EmployeeDTO(0,"userName","designation","firstName", "lastLame", "fullName", "employeeCode", "region", 0.0, "email", "department", 0.0));
+        when(mockEmployeeMapper.asDTOList(Arrays.asList(new Employee(0,"userName","designation","firstName", "lastLame", "fullName", "employeeCode", "region", 0.0, "email", "department", 0.0))))
                 .thenReturn(employeeDTOS);
 
         // Run the test
@@ -133,8 +133,8 @@ class EmployeeControllerImplTest {
         when(mockEmployeeService.findAll()).thenReturn(Collections.emptyList());
 
         // Configure EmployeeMapper.asDTOList(...).
-        final List<EmployeeDTO> employeeDTOS = Arrays.asList(new EmployeeDTO(0, "name", "dept", 0.0));
-        when(mockEmployeeMapper.asDTOList(Arrays.asList(new Employee(0, "name", "dept", 0.0))))
+        final List<EmployeeDTO> employeeDTOS = Arrays.asList(new EmployeeDTO(0,"userName","designation","firstName", "lastLame", "fullName", "employeeCode", "region", 0.0, "email", "department", 0.0));
+        when(mockEmployeeMapper.asDTOList(Arrays.asList(new Employee(0,"userName","designation","firstName", "lastLame", "fullName", "employeeCode", "region", 0.0, "email", "department", 0.0))))
                 .thenReturn(employeeDTOS);
 
         // Run the test
@@ -151,10 +151,10 @@ class EmployeeControllerImplTest {
     void testList_EmployeeMapperReturnsNoItems() throws Exception {
         // Setup
         // Configure EmployeeService.findAll(...).
-        final List<Employee> employees = Arrays.asList(new Employee(0, "name", "dept", 0.0));
+        final List<Employee> employees = Arrays.asList(new Employee(0,"userName","designation","firstName", "lastLame", "fullName", "employeeCode", "region", 0.0, "email", "department", 0.0));
         when(mockEmployeeService.findAll()).thenReturn(employees);
 
-        when(mockEmployeeMapper.asDTOList(Arrays.asList(new Employee(0, "name", "dept", 0.0))))
+        when(mockEmployeeMapper.asDTOList(Arrays.asList(new Employee(0,"userName","designation","firstName", "lastLame", "fullName", "employeeCode", "region", 0.0, "email", "department", 0.0))))
                 .thenReturn(Collections.emptyList());
 
         // Run the test
@@ -171,10 +171,10 @@ class EmployeeControllerImplTest {
     void testPageQuery() throws Exception {
         // Setup
         // Configure EmployeeService.findAll(...).
-        final Page<Employee> employees = new PageImpl<>(Arrays.asList(new Employee(0, "name", "dept", 0.0)));
+        final Page<Employee> employees = new PageImpl<>(Arrays.asList(new Employee(0,"userName","designation","firstName", "lastLame", "fullName", "employeeCode", "region", 0.0, "email", "department", 0.0)));
         when(mockEmployeeService.findAll(any(Pageable.class))).thenReturn(employees);
 
-        when(mockEmployeeMapper.asDTO(any(Employee.class))).thenReturn(new EmployeeDTO(0, "name", "dept", 0.0));
+        when(mockEmployeeMapper.asDTO(any(Employee.class))).thenReturn(new EmployeeDTO(0,"userName","designation","firstName", "lastLame", "fullName", "employeeCode", "region", 0.0, "email", "department", 0.0));
 
         // Run the test
         final MockHttpServletResponse response = mockMvc.perform(get("/api/employee/page-query")
@@ -189,7 +189,7 @@ class EmployeeControllerImplTest {
     void testPageQuery_EmployeeServiceReturnsNoItems() throws Exception {
         // Setup
         when(mockEmployeeService.findAll(any(Pageable.class))).thenReturn(new PageImpl<>(Collections.emptyList()));
-        when(mockEmployeeMapper.asDTO(any(Employee.class))).thenReturn(new EmployeeDTO(0, "name", "dept", 0.0));
+        when(mockEmployeeMapper.asDTO(any(Employee.class))).thenReturn(new EmployeeDTO(0,"userName","designation","firstName", "lastLame", "fullName", "employeeCode", "region", 0.0, "email", "department", 0.0));
 
         // Run the test
         final MockHttpServletResponse response = mockMvc.perform(get("/api/employee/page-query")
@@ -203,13 +203,13 @@ class EmployeeControllerImplTest {
     @Test
     void testUpdate() throws Exception {
         // Setup
-        when(mockEmployeeMapper.asEntity(any(EmployeeDTO.class))).thenReturn(new Employee(0, "name", "dept", 0.0));
-        when(mockEmployeeService.update(any(Employee.class), eq(0))).thenReturn(new Employee(0, "name", "dept", 0.0));
-        when(mockEmployeeMapper.asDTO(any(Employee.class))).thenReturn(new EmployeeDTO(0, "name", "dept", 0.0));
+        when(mockEmployeeMapper.asEntity(any(EmployeeDTO.class))).thenReturn(new Employee(0,"userName","designation","firstName", "lastLame", "fullName", "employeeCode", "region", 0.0, "email", "department", 0.0));
+        when(mockEmployeeService.update(any(Employee.class), eq(0))).thenReturn(new Employee(0,"userName","designation","firstName", "lastLame", "fullName", "employeeCode", "region", 0.0, "email", "department", 0.0));
+        when(mockEmployeeMapper.asDTO(any(Employee.class))).thenReturn(new EmployeeDTO(0,"userName","designation","firstName", "lastLame", "fullName", "employeeCode", "region", 0.0, "email", "department", 0.0));
 
         // Run the test
         final MockHttpServletResponse response = mockMvc.perform(put("/api/employee/{id}", 0)
-                        .content(new ObjectMapper().writeValueAsString(new EmployeeDTO(0, "name", "dept", 0.0))).contentType(MediaType.APPLICATION_JSON)
+                        .content(new ObjectMapper().writeValueAsString(new EmployeeDTO(0,"userName","designation","firstName", "lastLame", "fullName", "employeeCode", "region", 0.0, "email", "department", 0.0))).contentType(MediaType.APPLICATION_JSON)
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))
                 .andReturn().getResponse();

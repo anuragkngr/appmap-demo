@@ -1,26 +1,50 @@
 package com.javatechie.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.*;
+import org.springframework.data.web.config.EnableSpringDataWebSupport;
+
+import static org.springframework.data.web.config.EnableSpringDataWebSupport.PageSerializationMode.VIA_DTO;
 
 @Entity
+@Getter
+@Setter
+//@EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO)
 public class Employee {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String name;
-    private String dept;
+    private String userName;
+    private String designation;
+    private String firstName;
+    private String lastName;
+    private String fullName;
+    private String employeeCode;
+    private String region;
+    private double phone;
+    private String email;
+    private String department;
     private double salary;
 
     public Employee() {
     }
 
-    public Employee(Integer id, String name, String dept, double salary) {
+    public Employee(Integer id, String userName, String designation, String firstName, String lastName, String fullName, String employeeCode, String region, double phone, String email, String department, double salary) {
         this.id = id;
-        this.name = name;
-        this.dept = dept;
+        this.userName = userName;
+        this.designation = designation;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.fullName = fullName;
+        this.employeeCode = employeeCode;
+        this.region = region;
+        this.phone = phone;
+        this.email = email;
+        this.department = department;
         this.salary = salary;
     }
 
@@ -32,20 +56,84 @@ public class Employee {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public String getDept() {
-        return dept;
+    public String getDesignation() {
+        return designation;
     }
 
-    public void setDept(String dept) {
-        this.dept = dept;
+    public void setDesignation(String designation) {
+        this.designation = designation;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public String getEmployeeCode() {
+        return employeeCode;
+    }
+
+    public void setEmployeeCode(String employeeCode) {
+        this.employeeCode = employeeCode;
+    }
+
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
+    }
+
+    public double getPhone() {
+        return phone;
+    }
+
+    public void setPhone(double phone) {
+        this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
     }
 
     public double getSalary() {

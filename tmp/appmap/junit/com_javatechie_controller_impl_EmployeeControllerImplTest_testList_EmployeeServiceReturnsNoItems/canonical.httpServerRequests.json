@@ -1,0 +1,7 @@
+[
+  {
+    "route": "GET /api/employee",
+    "parameters": "()",
+    "status": 200
+  }
+]

@@ -1,0 +1,1 @@
+Syntax error found near Numbered Bind Parameter (LIMIT Clause): select e1_0.id,e1_0.department,e1_0.designation,e1_0.email,e1_0.employee_code,e1_0.first_name,e1_0.full_name,e1_0.last_name,e1_0.phone,e1_0.region,e1_0.salary,e1_0.user_name from employee e1_0 offset ? rows fetch first ? rows only

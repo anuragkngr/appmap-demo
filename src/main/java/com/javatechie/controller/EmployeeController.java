@@ -5,12 +5,16 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.config.EnableSpringDataWebSupport;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
+import static org.springframework.data.web.config.EnableSpringDataWebSupport.PageSerializationMode.VIA_DTO;
+
 @Api(tags = "Employee API")
+@EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO)
 public interface EmployeeController {
     @ApiOperation("Add new data")
     public EmployeeDTO save(@RequestBody EmployeeDTO employee);

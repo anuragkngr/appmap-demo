@@ -8,6 +8,7 @@ import com.javatechie.service.EmployeeService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.config.EnableSpringDataWebSupport;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,8 +16,11 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import static org.springframework.data.web.config.EnableSpringDataWebSupport.PageSerializationMode.VIA_DTO;
+
 @RequestMapping("/api/employee")
 @RestController
+//@EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO)
 public class EmployeeControllerImpl implements EmployeeController {
     private final EmployeeService employeeService;
     private final EmployeeMapper employeeMapper;

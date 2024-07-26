@@ -1,0 +1,22 @@
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  jpa:
+    hibernate:
+      ddl-auto: update
+  cloud:
+    azure:
+      active-directory:
+        enabled: true
+        profile:
+          tenant-id: 86dacd16-9027-49d1-9182-87c7d129c20c
+        credential:
+          client-id: 40991ee3-d66d-455d-9d7f-076138a023ac
+          client-secret: tQo8Q~w5v-iRVnpd1W61CwLee0Yv43bErZsdFaEp
+#          client-id: 4002f632-7645-45b4-aea4-0e82a1335b88
+#          client-secret: qHP8Q~2fk_kbjV2V2ENN87dC6Mpk-qp7yrse6a4E
+
+server:
+  port: 8080
+  forward-headers-strategy: native
